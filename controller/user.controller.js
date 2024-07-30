@@ -6,15 +6,15 @@ module.exports = {
     loginPage: (req, res) => {
         res.render('login')
     },
-    login: async(req,res) =>{ 
-        var {email,password} = req.body
-        var check = await admin.findOne({email})
-        if(check){
-            if(password == check.password){
-                var token = jwt.sign({id : check.id},"developer")
-                res.cookie("token",token)
-                res.redirect('/admin')
-            }else{
+    login: async (req, res) => {
+        var { email, password } = req.body
+        var check = await user.findOne({ email })
+        if (check) {
+            if (password == check.password) {
+                var token = jwt.sign({ id: check.id }, "developer")
+                res.cookie("token", token)
+                res.redirect('/')
+            } else {
                 res.redirect('back')
             }
         }
