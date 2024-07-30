@@ -21,4 +21,16 @@ module.exports = {
             res.redirect('back')
         }
     },
+    Home : (res,req) =>{
+        res.render('index')
+    },
+    registerPage : (res,req)=>{
+        res.render('register')
+    },
+    register: async (req, res) => {
+        console.log(req.body);
+        var { name, email, password } = req.body
+        var data = await admin.create({ name, email, password })
+        res.redirect("/register")
+    }
 }
