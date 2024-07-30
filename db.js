@@ -2,10 +2,10 @@ var mongoose = require('mongoose')
 
 var db = mongoose.connection
 
-mongoose.connect("mongodb://localhost:27017/furni")
+mongoose.connect("mongodb://localhost:27017/cozastore")
 
 db.once('open',(err) =>{
-    if(err){ 
+    if(err){
         console.log(err)
     }
     else{
