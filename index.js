@@ -16,11 +16,11 @@ require('./db.js')
 app.use('/',require('./router/user.router.js'))
 app.use('/admin',require('./router/admin.router.js'))
 
-app.listen(3000, (err)=>{
+app.listen(9000, (err)=>{
     if(err){
         console.log(err)
     }
     else{
-        console.log('Server is running on port 3000')
+        console.log('Server is running on port 9000')
     }
 })
