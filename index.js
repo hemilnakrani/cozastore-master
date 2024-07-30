@@ -14,7 +14,7 @@ app.use(cookieParser())
 require('./db.js')
 
 app.use('/',require('./router/user.router.js'))
-app.use('/admin',require('./router/admin.router.js'))
+//app.use('/admin',require('./router/admin.router.js'))
 
 app.listen(9000, (err)=>{
     if(err){
