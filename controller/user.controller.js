@@ -13,7 +13,7 @@ module.exports = {
             if(password == check.password){
                 var token = jwt.sign({id : check.id},"developer")
                 res.cookie("token",token)
-                res.redirect('/admin')
+                res.redirect('/home')
             }else{
                 res.redirect('back')
             }
