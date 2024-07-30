@@ -34,5 +34,20 @@ module.exports = {
         var { name, email, password } = req.body
         var data = await user.create({ name, email, password })
         res.redirect("/register")
-    }
+    },
+    shopPage : (req,res)=>{
+        res.render('product')
+    },
+    blogPage : (req,res)=>{
+        res.render('blog')
+    },
+    aboutPage : (req,res)=>{
+        res.render('about')
+    },
+    contactPage : (req,res)=>{
+        res.render('contact')
+    },
+    cartPage : (req,res)=>{
+        res.render('shoping-cart')
+    },
 }
