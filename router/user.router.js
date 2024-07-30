@@ -1,7 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var controller = require('../controller/user.controller.js')
-var middleware = require('../middleware/student.middleware.js')
+var middleware = require('../middleware/user.middleware.js')
 
 router.get('/login',controller.loginPage)
 router.get('/',middleware,controller.Home)
