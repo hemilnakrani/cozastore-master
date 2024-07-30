@@ -51,6 +51,6 @@ module.exports = {
         res.render('shoping-cart')
     },
     blogdetailPage : (req,res)=>{
-        res.render('blog-detailPage')
+        res.render('blog-detail')
     },
 }
