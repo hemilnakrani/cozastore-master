@@ -13,6 +13,7 @@ app.use(cookieParser())
 
 require('./db.js')
 
+
 app.use('/',require('./router/index.router.js'))
 app.use('/admin',require('./router/admin.router.js'))
 
