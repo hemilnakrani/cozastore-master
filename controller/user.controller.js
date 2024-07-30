@@ -8,12 +8,12 @@ module.exports = {
     },
     login: async(req,res) =>{ 
         var {email,password} = req.body
-        var check = await user.findOne({email})
+        var check = await admin.findOne({email})
         if(check){
             if(password == check.password){
                 var token = jwt.sign({id : check.id},"developer")
                 res.cookie("token",token)
-                res.redirect('/home')
+                res.redirect('/admin')
             }else{
                 res.redirect('back')
             }
