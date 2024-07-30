@@ -21,4 +21,11 @@ module.exports = {
             res.redirect('back')
         }
     },
+    Home : (res,req) =>{
+        res.render('index')
+    },
+    registerPage : (res,req)=>{
+        res.render('register')
+    },
+    
 }
