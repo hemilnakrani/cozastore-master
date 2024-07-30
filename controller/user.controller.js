@@ -50,4 +50,7 @@ module.exports = {
     cartPage : (req,res)=>{
         res.render('shoping-cart')
     },
+    blogdetailPage : (req,res)=>{
+        res.render('blog-detailPage')
+    },
 }
