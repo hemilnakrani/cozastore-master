@@ -3,6 +3,9 @@ const { model } = require('mongoose')
 const user = require('../model/user.model')
 
 module.exports = {
+    Home: (req,res) => {
+        res.render('index')
+    },
     loginPage: (req, res) => {
         res.render('login')
     },
@@ -22,10 +25,8 @@ module.exports = {
             res.redirect('back')
         }
     },
-    Home: (res, req) => {
-        res.render('index')
-    },
-    registerPage: (res, req) => {
+   
+    registerPage: (req,res) => {
         res.render('register')
     },
     register: async (req, res) => {
