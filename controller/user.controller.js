@@ -1,30 +1,31 @@
 var jwt = require('jsonwebtoken')
 const { model } = require('mongoose')
+const user = require('../model/user.model')
 
 module.exports = {
-    loginPage: (req,res) =>{
+    loginPage: (req, res) => {
         res.render('login')
     },
     login: async(req,res) =>{ 
         var {email,password} = req.body
-        var check = await user.findOne({email})
+        var check = await admin.findOne({email})
         if(check){
             if(password == check.password){
                 var token = jwt.sign({id : check.id},"developer")
                 res.cookie("token",token)
-                res.redirect('/home')
+                res.redirect('/admin')
             }else{
                 res.redirect('back')
             }
         }
-        else{
+        else {
             res.redirect('back')
         }
     },
-    Home : (res,req) =>{
+    Home: (res, req) => {
         res.render('index')
     },
-    registerPage : (res,req)=>{
+    registerPage: (res, req) => {
         res.render('register')
     },
     register: async (req, res) => {
