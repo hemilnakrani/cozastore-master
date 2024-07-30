@@ -7,12 +7,12 @@ module.exports = {
     },
     login: async(req,res) =>{ 
         var {email,password} = req.body
-        var check = await admin.findOne({email})
+        var check = await user.findOne({email})
         if(check){
             if(password == check.password){
                 var token = jwt.sign({id : check.id},"developer")
                 res.cookie("token",token)
-                res.redirect('/admin')
+                res.redirect('/home')
             }else{
                 res.redirect('back')
             }
@@ -30,7 +30,7 @@ module.exports = {
     register: async (req, res) => {
         console.log(req.body);
         var { name, email, password } = req.body
-        var data = await admin.create({ name, email, password })
+        var data = await user.create({ name, email, password })
         res.redirect("/register")
     }
 }

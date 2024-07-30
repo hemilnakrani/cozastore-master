@@ -4,7 +4,7 @@ var controller = require('../controller/user.controller.js')
 var middleware = require('../middleware/user.middleware.js')
 
 router.get('/login',controller.loginPage)
-router.get('/',middleware,controller.Home)
+router.get('/home',middleware,controller.Home)
 // router.get('/syllabus',controller.syllabus)
 // router.get('/update/:id',controller.updatepage)
 router.get('/register',controller.registerPage)
