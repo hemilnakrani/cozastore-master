@@ -36,8 +36,9 @@ module.exports = {
         var data = await user.create({ name, email, password })
         res.redirect("/register")
     },
-    shopPage: (req, res) => {
-        res.render('product')
+    shopPage:async (req, res) => {
+        var data = await product.find()
+        res.render('product',{data:data})
     },
     blogPage: (req, res) => {
         res.render('blog')
@@ -48,14 +49,11 @@ module.exports = {
     contactPage: (req, res) => {
         res.render('contact')
     },
-    cartPage: (req, res) => {
-        res.render('shoping-cart')
+    cartPage:async (req, res) => {
+        var data = await product.findById(req.params.id)
+        res.render('shoping-cart',{data:data})
     },
     blogdetailPage: (req, res) => {
         res.render('blog-detail')
     },
-    product: async(req, res) => {
-        var data = await product.findById(req.params.id)
-        res.render('shoping-cart',{data})
-    }
 }

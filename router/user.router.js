@@ -11,10 +11,8 @@ router.get('/blog',controller.blogPage)
 router.get('/blog-detail',controller.blogdetailPage)
 router.get('/about',controller.aboutPage)
 router.get('/contact',controller.contactPage)
-router.get('/cart',controller.cartPage)
+router.get('/cart/:id',controller.cartPage)
 
-
-router.post('/product/:id', controller.product)
 
 
 router.post('/register', controller.register)
