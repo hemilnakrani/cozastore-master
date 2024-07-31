@@ -1,23 +1,24 @@
 var jwt = require('jsonwebtoken')
 const { model } = require('mongoose')
 const user = require('../model/user.model')
+const product = require('../model/product.model')
 
 module.exports = {
-    Home: (req,res) => {
+    Home: (req, res) => {
         res.render('index')
     },
     loginPage: (req, res) => {
         res.render('login')
     },
-    login: async(req,res) =>{ 
-        var {email,password} = req.body
-        var check = await user.findOne({email})
-        if(check){
-            if(password == check.password){
-                var token = jwt.sign({id : check.id},"developer")
-                res.cookie("token",token)
+    login: async (req, res) => {
+        var { email, password } = req.body
+        var check = await user.findOne({ email })
+        if (check) {
+            if (password == check.password) {
+                var token = jwt.sign({ id: check.id }, "developer")
+                res.cookie("token", token)
                 res.redirect('/home')
-            }else{
+            } else {
                 res.redirect('back')
             }
         }
@@ -25,8 +26,8 @@ module.exports = {
             res.redirect('back')
         }
     },
-   
-    registerPage: (req,res) => {
+
+    registerPage: (req, res) => {
         res.render('register')
     },
     register: async (req, res) => {
@@ -35,22 +36,26 @@ module.exports = {
         var data = await user.create({ name, email, password })
         res.redirect("/register")
     },
-    shopPage : (req,res)=>{
+    shopPage: (req, res) => {
         res.render('product')
     },
-    blogPage : (req,res)=>{
+    blogPage: (req, res) => {
         res.render('blog')
     },
-    aboutPage : (req,res)=>{
+    aboutPage: (req, res) => {
         res.render('about')
     },
-    contactPage : (req,res)=>{
+    contactPage: (req, res) => {
         res.render('contact')
     },
-    cartPage : (req,res)=>{
+    cartPage: (req, res) => {
         res.render('shoping-cart')
     },
-    blogdetailPage : (req,res)=>{
+    blogdetailPage: (req, res) => {
         res.render('blog-detail')
     },
+    product: async(req, res) => {
+        var data = await product.findById(req.params.id)
+        res.render({data})
+    }
 }
