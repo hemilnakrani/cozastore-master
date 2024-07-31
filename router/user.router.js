@@ -14,6 +14,9 @@ router.get('/contact',controller.contactPage)
 router.get('/cart',controller.cartPage)
 
 
+router.post('/product/:id', controller.product)
+
+
 router.post('/register', controller.register)
 router.post('/login',controller.login)
 
