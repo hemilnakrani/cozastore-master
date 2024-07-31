@@ -56,6 +56,6 @@ module.exports = {
     },
     product: async(req, res) => {
         var data = await product.findById(req.params.id)
-        res.render({data})
+        res.render('shoping-cart',{data})
     }
 }
