@@ -51,7 +51,8 @@ module.exports = {
     },
     cartPage:async (req, res) => {
         var data = await product.findById(req.params.id)
-        res.render('shoping-cart',{data:data})
+        var sum = data.price + 16;
+        res.render('shoping-cart',{data:data,sum:sum})
     },
     blogdetailPage: (req, res) => {
         res.render('blog-detail')
