@@ -63,7 +63,7 @@ module.exports = {
     },
     checkoutPage: async(req,res)=>{
         var {country ,fname ,lname ,address ,state ,zipcode,email ,phone,ordernote  } = req.body
-        var data = await checkout.create({country ,fname ,lname ,address ,state ,zipcode,email ,phone,ordernote})
+        var detail = await checkout.create({country ,fname ,lname ,address ,state ,zipcode,email ,phone,ordernote})
         res.render('checkout')
     },
     thankyouPage: (req,res)=>{
