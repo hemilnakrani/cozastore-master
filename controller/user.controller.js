@@ -34,7 +34,7 @@ module.exports = {
         console.log(req.body);
         var { name, email, password } = req.body
         var data = await user.create({ name, email, password })
-        res.redirect("/register")
+        res.redirect("/login")
     },
     shopPage:async (req, res) => {
         var data = await product.find()
