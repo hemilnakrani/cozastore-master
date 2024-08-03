@@ -17,7 +17,7 @@ module.exports = {
             if (password == check.password) {
                 var token = jwt.sign({ id: check.id }, "developer")
                 res.cookie("token", token)
-                res.redirect('/home')
+                res.redirect('/cart')
             } else {
                 res.redirect('back')
             }
@@ -57,4 +57,7 @@ module.exports = {
     blogdetailPage: (req, res) => {
         res.render('blog-detail')
     },
+    checkoutPage: (req,res)=>{
+        res.render('checkout')
+    }
 }

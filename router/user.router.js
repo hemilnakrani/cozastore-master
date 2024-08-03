@@ -4,13 +4,14 @@ var controller = require('../controller/user.controller.js')
 var middleware = require('../middleware/user.middleware.js')
 
 router.get('/login',controller.loginPage)
-router.get('/home',middleware,controller.Home)
+router.get('/home', controller.Home)
 router.get('/register',controller.registerPage)
 router.get('/shop',controller.shopPage)
 router.get('/blog',controller.blogPage)
 router.get('/blog-detail',controller.blogdetailPage)
 router.get('/about',controller.aboutPage)
 router.get('/contact',controller.contactPage)
+router.get('/checkout',controller.checkoutPage)
 router.get('/cart/:id',controller.cartPage)
 
 
