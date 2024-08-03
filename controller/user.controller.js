@@ -54,6 +54,9 @@ module.exports = {
         var sum = data.price + 16;
         res.render('shoping-cart',{data:data,sum:sum})
     },
+    cart:(req,res)=>{
+        res.render('cart')
+    },
     blogdetailPage: (req, res) => {
         res.render('blog-detail')
     },

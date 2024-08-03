@@ -12,6 +12,7 @@ router.get('/blog-detail',controller.blogdetailPage)
 router.get('/about',controller.aboutPage)
 router.get('/contact',controller.contactPage)
 router.get('/checkout',controller.checkoutPage)
+router.get('/cart',controller.cart)
 router.get('/cart/:id',controller.cartPage)
 
 
