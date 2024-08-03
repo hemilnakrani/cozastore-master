@@ -2,6 +2,7 @@ var jwt = require('jsonwebtoken')
 const { model } = require('mongoose')
 const user = require('../model/user.model')
 const product = require('../model/product.model')
+const checkout = require('../model/checkout.model')
 
 module.exports = {
     Home: (req, res) => {
@@ -60,7 +61,9 @@ module.exports = {
     blogdetailPage: (req, res) => {
         res.render('blog-detail')
     },
-    checkoutPage: (req,res)=>{
+    checkoutPage: async(req,res)=>{
+        var {country ,fname ,lname ,address ,state ,zipcode,email ,phone,ordernote  } = req.body
+        var data = await checkout.create({country ,fname ,lname ,address ,state ,zipcode,email ,phone,ordernote})
         res.render('checkout')
     }
 }
