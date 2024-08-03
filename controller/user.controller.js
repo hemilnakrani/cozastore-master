@@ -17,7 +17,7 @@ module.exports = {
             if (password == check.password) {
                 var token = jwt.sign({ id: check.id }, "developer")
                 res.cookie("token", token)
-                res.redirect('/cart')
+                res.redirect('/checkout')
             } else {
                 res.redirect('back')
             }
@@ -51,7 +51,7 @@ module.exports = {
     },
     cartPage:async (req, res) => {
         var data = await product.findById(req.params.id)
-        var sum = data.price + 16;
+        var sum = data.price + 54.79;
         res.render('shoping-cart',{data:data,sum:sum})
     },
     cart:(req,res)=>{
@@ -62,5 +62,8 @@ module.exports = {
     },
     checkoutPage: (req,res)=>{
         res.render('checkout')
+    },
+    thankyouPage: (req,res)=>{
+        res.render('thankyou')
     }
 }

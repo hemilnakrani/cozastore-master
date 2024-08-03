@@ -15,6 +15,7 @@ router.get('/checkout',controller.checkoutPage)
 router.get('/cart',controller.cart)
 router.get('/cart/:id',controller.cartPage)
 
+router.get('/thankyou',controller.thankyouPage)
 
 
 router.post('/register', controller.register)
