@@ -61,9 +61,16 @@ module.exports = {
     blogdetailPage: (req, res) => {
         res.render('blog-detail')
     },
+    checkout : async (req,res)=>{
+        var data = await product.findById(req.params.id)
+         var sum = data.price + 54.79;
+        res.render('checkout',{data:data,sum:sum})
+      
+    },
     checkoutPage: async(req,res)=>{
         var {country ,fname ,lname ,address ,state ,zipcode,email ,phone,ordernote  } = req.body
         var detail = await checkout.create({country ,fname ,lname ,address ,state ,zipcode,email ,phone,ordernote})
+      
         res.render('checkout')
     },
     thankyouPage: (req,res)=>{
