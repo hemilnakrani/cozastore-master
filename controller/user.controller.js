@@ -23,6 +23,7 @@ module.exports = {
                 res.redirect('back')
             }
         }
+        
         else {
             res.redirect('back')
         }
@@ -71,7 +72,7 @@ module.exports = {
         var {country ,fname ,lname ,address ,state ,zipcode,email ,phone,ordernote  } = req.body
         var detail = await checkout.create({country ,fname ,lname ,address ,state ,zipcode,email ,phone,ordernote})
       
-        res.render('checkout')
+        res.render('checkout',{detail})
     },
     thankyouPage: (req,res)=>{
         res.render('thankyou')
